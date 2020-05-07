@@ -68,6 +68,7 @@ def winning_move(board, piece):
 def draw_board(board):
     for c in range(COLUMN_COUNT):
         for r in range(ROW_COUNT):
+            #BLUE, (top left, top left, bottom right?, bottom right?)
             pygame.draw.rect(screen, BLUE, (c * SQUARESIZE, r * SQUARESIZE + SQUARESIZE, SQUARESIZE, SQUARESIZE))
             pygame.draw.circle(screen, BLACK, (
             int(c * SQUARESIZE + SQUARESIZE / 2), int(r * SQUARESIZE + SQUARESIZE + SQUARESIZE / 2)), RADIUS)
@@ -112,6 +113,7 @@ while not game_over:
             sys.exit()
 
         if event.type == pygame.MOUSEMOTION:
+            #black rectanle to keep top of screen black, whole width and down one squaresize
             pygame.draw.rect(screen, BLACK, (0, 0, width, SQUARESIZE))
             posx = event.pos[0]
             if turn == 0:
